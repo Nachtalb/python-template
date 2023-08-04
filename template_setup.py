@@ -79,16 +79,16 @@ def main() -> None:
         script_path.unlink()
         print("Script has been deleted.")
 
+    # Ask to run poetry install
+    if ask("Do you want to run `poetry install`"):
+        subprocess.run(["poetry", "install"])
+        print("Poetry install finished.")
+
     # Ask to commit changes
     if ask("Do you want to commit the changes"):
         subprocess.run(["git", "add", "."])
         subprocess.run(["git", "commit", "-m", "Set up project from template by filling in placeholders"])
         print("Changes have been committed.")
-
-    # Ask to run poetry install
-    if ask("Do you want to run `poetry install`"):
-        subprocess.run(["poetry", "install"])
-        print("Poetry install finished.")
 
 
 if __name__ == "__main__":
