@@ -44,7 +44,7 @@ def main() -> None:
                 file_content = file_path.read_text(encoding="utf-8")
             except UnicodeDecodeError:
                 print(f"Could not read file {file_path}, got a UnicodeDecodeError")
-                exit(1)
+                continue
             all_placeholders.update(find_placeholders(file_content))
 
     # Get values from the user for all unique placeholders
@@ -53,7 +53,10 @@ def main() -> None:
     # Replace placeholders in files
     for file_path in filter(git_filter, root_dir.rglob("*")):
         if file_path.is_file():
-            file_content = file_path.read_text(encoding="utf-8")
+            try:
+                file_content = file_path.read_text(encoding="utf-8")
+            except UnicodeDecodeError:
+                continue
             new_content = replace_placeholders(file_content, values)
             if new_content != file_content:
                 print(f"Replacing variables in '{file_path}'")
