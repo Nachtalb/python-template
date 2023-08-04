@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/python,vim,linux,vscode
-# Edit at https://www.toptal.com/developers/gitignore?templates=python,vim,linux,vscode
+# Created by https://www.toptal.com/developers/gitignore/api/python,vim,linux
+# Edit at https://www.toptal.com/developers/gitignore?templates=python,vim,linux
 
 ### Linux ###
 *~
@@ -207,7 +207,5 @@ Sessionx.vim
 tags
 # Persistent undo
 [._]*.un~
-
-#!! ERROR: vscode is undefined. Use list command to see defined gitignore types !!#
 
 # End of https://www.toptal.com/developers/gitignore/api/python,vim,linux,vscode
