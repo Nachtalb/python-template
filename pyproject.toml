@@ -1,0 +1,55 @@
+[tool.poetry]
+name = "{{ project_name }}"
+version = "0.1.0a0"
+description = "{{ project_description }}"
+authors = ["Nachtalb <na@nachtalb.io>"]
+license = "LGPL-3.0"
+readme = "README.md"
+packages = [{ include = "{{ project_name }}" }]
+keywords = ["async"]
+classifiers = [
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Framework :: AsyncIO",
+  "License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)",
+  "Typing :: Typed",
+]
+homepage = "https://github.com/Nachtalb/{{ project_name }}"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+[tool.poetry.group.dev.dependencies]
+ipdb = ">=0.13.13"
+ipython = { extras = ["black"], version = ">=8.14.0" }
+pre-commit = ">=3.3.3"
+ruff = ">=0.0.282"
+mypy = ">=1.4.1"
+isort = ">=5.12.0"
+black = ">=23.7.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+profile = "black"
+line_length = 120
+
+[tool.black]
+line-length = 120
+preview = true
+target-version = ["py311"]
+
+[tool.ruff]
+line-length = 120
+
+[tool.mypy]
+python_version = "3.11"
+show_error_codes = true
+pretty = true
+strict = true
