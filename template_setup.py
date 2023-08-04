@@ -84,6 +84,11 @@ def main() -> None:
         subprocess.run(["poetry", "install"])
         print("Poetry install finished.")
 
+        # Ask to install pre-commit hooks
+        if ask("Do you want to install pre-commit hooks"):
+            subprocess.run(["poetry", "run", "pre-commit", "install"])
+            print("Poetry install finished.")
+
     # Ask to commit changes
     if ask("Do you want to commit the changes"):
         subprocess.run(["git", "add", "."])
