@@ -89,6 +89,12 @@ def main() -> None:
             subprocess.run(["poetry", "run", "pre-commit", "install"])
             print("Poetry install finished.")
 
+        # Ask to update dependencies
+        if ask("Do you want me to update all dependencies"):
+            subprocess.run(["poetry", "update"])
+            subprocess.run(["poetry", "run", "pre-commit", "autoupdate"])
+            print("Poetry install finished.")
+
     # Ask to commit changes
     if ask("Do you want to commit the changes"):
         subprocess.run(["git", "add", "."])
